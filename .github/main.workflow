@@ -12,7 +12,7 @@ action "GitHub Action for npm" {
 action "GitHub Action for npm-1" {
   uses = "actions/npm@e7aaefe"
   runs = "yarn"
-  args = "install --production"
+  args = "install"
 }
 
 action "GitHub Action for npm-2" {
