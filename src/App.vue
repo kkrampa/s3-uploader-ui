@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <b-container>
+      <S3FileUpload />
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import S3FileUpload from './components/S3FileUpload';
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    S3FileUpload,
+  },
+  data () {
+    return {
+      file: []
+    }
+  },
 }
 </script>
 
