@@ -1,6 +1,6 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["GitHub Action for npm-2"]
+  resolves = ["GitHub Action for AWS"]
 }
 
 action "GitHub Action for npm" {
@@ -20,4 +20,12 @@ action "GitHub Action for npm-2" {
   needs = ["GitHub Action for npm-1"]
   runs = "yarn"
   args = "build"
+}
+
+action "GitHub Action for AWS" {
+  uses = "actions/aws/cli@8d31870"
+  needs = ["GitHub Action for npm-2"]
+  secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+  runs = "make"
+  args = "prod-env-deploy"
 }
